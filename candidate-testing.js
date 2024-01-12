@@ -1,4 +1,4 @@
-// Import the readline-sync module for user input
+// added to
 const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
@@ -6,7 +6,6 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 // Define candidateName to empty string
 let candidateName = '';
-
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 // Initialize question 
 let question = "Who was the first American woman in space? ";
@@ -33,18 +32,31 @@ function askQuestion() {
   // console.log(question);
   candidateAnswer = input.question(question);
 
-
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
-  if (candidateAnswer === "Sally Ride") {
-    console.log(`Great job! ${correctAnswer} is the right answer.`);
-  } else {
-    console.log(`My apologies, you have failed this quiz.  ${candidateAnswer} is incorrect.`);
-  }
+  // Conditional (ternary) operator 
+  // reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
+  console.log((candidateAnswer === correctAnswer) ?`\nGreat job! \n${candidateAnswer} was the first American woman in space.` : `\nYou're answer ${candidateAnswer} is incorrect.\nThe correct answer is: ${correctAnswer}`);
 
+  // 'switch' statement
+  //  reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+  // switch (candidateAnswer) {
+  //   case correctAnswer:
+  //     console.log(`\nGreat job! \n${candidateAnswer} was the first American woman in space.`);
+  //     break;
+  //   default:
+  //     console.log(`\nYou're answer ${candidateAnswer} is incorrect.\nThe correct answer is: ${correctAnswer}`);
+  // }
+
+  // Standard if/else statement
+  // if (candidateAnswer === correctAnswer) {  // test is candidateAnswer = correctAnswer; correctAnswer = "Sally ride"
+  //   console.log(`\nGreat job! \n${candidateAnswer} was the first American woman in space.`);  
+  // } else {
+  //   console.log(`\nYou're answer ${candidateAnswer} is incorrect.\nThe correct answer is: ${correctAnswer}`);
+  // }
 
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
