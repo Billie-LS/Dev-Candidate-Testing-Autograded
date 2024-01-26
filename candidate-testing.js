@@ -63,11 +63,11 @@ function gradeQuiz(candidateAnswers) {
   // initialize counter variable for correct answers count
   let correctAnswer = 0;
 
-  // Loop through each answer in the candidate's answers
+  // Loop through each item in the candidate's answers
   for (let i = 0; i < candidateAnswers.length; i++){
-    // Check if candidateAnswer equal to correctAnswers, make case-insensitive
+    // Check candidateAnswer equal to correctAnswers, make case-insensitive
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
-      // Increment the correct answer count
+      // Increment correct answer counter
       correctAnswer+=1;
       console.log(
         // check strict equality each item candidateAnswers to each item correctAnswers, loop through arrays
@@ -81,7 +81,6 @@ function gradeQuiz(candidateAnswers) {
   }
   
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-  // ternary operator to address zero in numerator
   // Calculate the grade based on the number of correct answers
     grade = (correctAnswer / 5) * 100
     // output score and pass or fail
