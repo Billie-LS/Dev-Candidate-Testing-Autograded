@@ -79,7 +79,8 @@ function gradeQuiz(candidateAnswers) {
       );
     }
   }
-  return correctCount;
+  
+  return giveScore(correctCount);
 }
 
 function giveScore(correctCount) {
@@ -104,9 +105,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
   console.log(`Hello ${candidateName}, I hope you have studied for this quiz!`);
   askQuestion();
-  // gradeQuiz(this.candidateAnswers);
-  giveScore(gradeQuiz(this.candidateAnswers));
-  
+  gradeQuiz(this.candidateAnswers); 
 
 }
 
@@ -119,6 +118,6 @@ module.exports = {
   questions: questions,
   correctAnswers: correctAnswers,
   candidateAnswers: candidateAnswers,
-  giveScore: giveScore,
+  gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
