@@ -57,18 +57,17 @@ function askQuestion() {
   return candidateAnswers;
 }
 
-
 function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
 
   // initialize counter variable for correct answers count
-  let correctCount = 0;
+  let correctAnswer = 0;
   // Loop through each item in the candidate's answers
   for (let i = 0; i < candidateAnswers.length; i++){
     // Check candidateAnswer equal to correctAnswers, make case-insensitive
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       // Increment correct answer counter
-      correctCount+=1;
+      correctAnswer+=1;
       console.log(
         // check strict equality each item candidateAnswers to each item correctAnswers, loop through arrays
         // ternary operator
@@ -79,16 +78,15 @@ function gradeQuiz(candidateAnswers) {
       );
     }
   }
-  return correctCount;
+  return correctAnswer;
 }
 
-function giveScore(correctCount) {
+function giveScore(correctAnswer) {
   
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-  console.log('this is givescore', correctCount);
   // let correctResponseCount = gradeQuiz(candidateAnswers);
   // Calculate the grade based on the number of correct answers
-    grade = (correctCount / 5) * 100
+    grade = (correctAnswer / 5) * 100
     // output score and pass or fail
     console.log(
       // ternary operator 80 or above is pass
@@ -96,6 +94,8 @@ function giveScore(correctCount) {
       ? `\nGreat job! You have achieved a passing score with \n${grade}% correct.`
       : `\nUnfortunately you have not passed this examination. \n${grade}% is a failing score.`
     )
+  // Return grade calculation
+  // return finalPct, grade;
   return grade;
 }
 
@@ -104,8 +104,11 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
   console.log(`Hello ${candidateName}, I hope you have studied for this quiz!`);
   askQuestion();
-  // gradeQuiz(this.candidateAnswers);
-  giveScore(gradeQuiz(this.candidateAnswers));
+  // candidateAnswer = askQuestion();
+  // console.log(candidateAnswer);
+  console.log(candidateAnswers);
+  gradeQuiz(this.candidateAnswers);
+  finalPct = giveScore(correctAnswer);
   
 
 }
@@ -119,6 +122,6 @@ module.exports = {
   questions: questions,
   correctAnswers: correctAnswers,
   candidateAnswers: candidateAnswers,
-  giveScore: giveScore,
+  gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
