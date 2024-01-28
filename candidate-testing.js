@@ -69,14 +69,14 @@ function gradeQuiz(candidateAnswers) {
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       // Increment correct answer counter
       correctCount+=1;
-      // console.log(
-      //   // check strict equality each item candidateAnswers to each item correctAnswers, loop through arrays
-      //   // ternary operator
-      //   candidateAnswers[i] === correctAnswers[i]
-      //     // Output answer correct or answer incorrect and here is correct 
-      //     ? `\nGreat job! \n${candidateAnswers[i]} is the correct answer.`
-      //     : `\nYou're answer ${candidateAnswers[i]} is incorrect.\nThe correct answer is: ${correctAnswers[i]}`
-      // );
+      console.log(
+        // check strict equality each item candidateAnswers to each item correctAnswers, loop through arrays
+        // ternary operator
+        candidateAnswers[i] === correctAnswers[i]
+          // Output answer correct or answer incorrect and here is correct 
+          ? `\nGreat job! \n${candidateAnswers[i]} is the correct answer.`
+          : `\nYou're answer ${candidateAnswers[i]} is incorrect.\nThe correct answer is: ${correctAnswers[i]}`
+      );
     }
   }
   
